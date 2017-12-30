@@ -1,13 +1,9 @@
 import urllib.parse
 
-from path_manager.product_tab.tab_with_single_result import TabWithSingleResult
-
 
 class RootPage:
     def __init__(self, link: str):
         self.link = link
-        # self.parent_page = ''
-        # self.product_tab = TabWithSingleResult('')
 
     def get_parent_page_link_name(self) -> str:
         return ''
