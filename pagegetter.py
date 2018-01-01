@@ -1,5 +1,4 @@
 import requests
-from selenium import webdriver
 import os
 import time
 
@@ -7,7 +6,7 @@ import time
 class PageGetter:
     def __init__(self, browser='firefox'):
         self.browser = browser
-        self.driver = webdriver.PhantomJS()
+        # self.driver = webdriver.PhantomJS()
         self.tmp_page_name = '.raw_tmp.html'
         self.headers = self._headers_list()
         self.session = requests.session()
@@ -25,8 +24,8 @@ class PageGetter:
     def _execute_page(self, raw_page):
         self._save_tmp_raw_page(raw_page)
         time.sleep(3)
-        self.driver.get('file://{}'.format(os.path.join(os.getcwd(), self.tmp_page_name)))
-        page_source = self.driver.page_source
+        # self.driver.get('file://{}'.format(os.path.join(os.getcwd(), self.tmp_page_name)))
+        # page_source = self.driver.page_source
         self._remove_tmp_raw_page()
         return page_source
 
@@ -53,4 +52,3 @@ class PageGetter:
             }
         }
         return dict(common_params, **browser_params[self.browser])
-
