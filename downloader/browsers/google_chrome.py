@@ -1,4 +1,4 @@
-from page_downloader.browsers.browser import Browser
+from downloader.browsers.browser import Browser
 
 
 class GoogleChrome(Browser):
